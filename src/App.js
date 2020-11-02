@@ -20,6 +20,7 @@ export default function App() {
   }, [])
   async function handleLikeRepository(id) {
     const response = await api.post(`repositories/${id}/like`)
+
     const likedRepo = response.data;
 
     const repositoriesUpdated = repositories.map(repo => {
@@ -29,6 +30,8 @@ export default function App() {
         return repo;
       }
     })
+
+    setRepositories(repositoriesUpdated)
     
   }
 
